@@ -1,0 +1,93 @@
+$white: #ffffff
+$bg-primary: #4285f4
+$bg-secondary: #333
+$text-primary: #333
+$text-secondary: #666
+$text-placeholder: #aaa
+$border-color: #e0e0e0
+$border-focus: #93bcff
+$shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1)
+$shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15)
+
+
+.container    
+    background: $bg-primary
+    min-height: 100vh
+    display: flex
+    align-items: center
+    justify-content: center
+
+.form-title
+   color: $text-secondary
+   font-size: 25px 
+   font-weight: 400 
+
+.form-container
+    background: #ffff
+    border-radius: 12px
+    box-shadow: $shadow-medium
+    padding: 40px
+    width: 100%
+    max-width: 450px
+    position: relative
+    overflow: hidden
+
+.form-group
+    display: flex
+    flex-direction: column
+    gap: 10px
+    font-size: 16px 
+    
+    &.double
+        flex-direction: row 
+        gap: 10px
+
+        .form-group
+            flex: 1       
+
+    label
+        color: $text-secondary
+        margin-top: 5px 
+        
+    input         
+        padding: 12px
+        color: $text-secondary
+        border: 3px solid $bg-secondary
+        border-color: $border-color 
+        border-radius: 8px 
+        transition: all 0.3s ease      
+    
+    input::placeholder
+        color: $text-placeholder
+
+
+    input:focus
+        outline: none              
+        border-color: $border-focus
+        box-shadow: $shadow-light 
+            
+.btn-send 
+    width: 100%
+    background: $bg-primary
+    color: $white
+    border: none
+    padding: 15px
+    margin-top: 20px 
+    border-radius: 8px
+    font-size: 16px
+    font-weight: 500
+    cursor: pointer
+
+.link-login        
+    text-align: center
+    margin-top: 25px 
+
+    a
+        text-decoration: none
+        color: $bg-primary
+
+
+
+
+
+

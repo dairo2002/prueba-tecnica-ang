@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card__header">
+        <h2 class="card__title">Países Disponibles</h2>
+    </div>
+    <div class="card__body">
+        <div class="country-list">
+            @for (country of countries; track $index) {
+            <div class="country-item" (click)="selectCountry(country)">
+                <div class="country-bandera">
+                    <img [src]="country.bandera" alt="{{country.nombre}}">
+                </div>
+                <div class="country-name-list">{{country.nombre}}</div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

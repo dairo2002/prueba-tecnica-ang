@@ -1,0 +1,147 @@
+@use '../../_variables' as *
+
+.dashboard 
+    display: flex
+    min-height: 100vh
+ 
+.sidebar 
+    width: $sidebar-width
+    background: $card-background
+    box-shadow: $shadow-light
+    position: fixed
+    left: 0
+    top: 0
+    height: 100vh
+    overflow-y: auto
+    z-index: 1000
+    transition: $transition
+
+
+.sidebar__header 
+    padding: 24px 20px
+    border-bottom: 1px solid $border-light
+ 
+
+.sidebar__logo 
+    font-size: 20px
+    font-weight: 500
+    color: $primary-blue
+    display: flex
+    align-items: center
+    gap: 12px
+
+
+.sidebar__logo i 
+    font-size: 24px
+ 
+
+.sidebar__nav 
+    padding: 16px 0
+ 
+
+.nav__item 
+    display: block
+    padding: 12px 20px
+    color: $text-secondary
+    text-decoration: none
+    transition: $transition
+    border-left: 3px solid transparent
+    display: flex
+    align-items: center
+    gap: 12px
+
+
+.nav__item:hover 
+    background-color: $light-blue
+    color: $primary-blue
+ 
+.nav__item.active 
+    background-color: $light-blue
+    color: $primary-blue
+    border-left-color: $primary-blue
+    font-weight: 500
+ 
+.nav__item i 
+    width: 20px
+    text-align: center
+
+.main-content 
+    margin-left: $sidebar-width
+    flex: 1
+    padding: 24px
+    transition: $transition
+
+.main-content__header 
+    margin-bottom: 32px
+ 
+
+.page-title 
+    font-size: 28px
+    font-weight: 400
+    color: $text-primary
+    margin-bottom: 8px
+
+.page-subtitle 
+    color: $text-secondary
+    font-size: 16px    
+
+.dashboard-grid 
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
+    gap: 24px
+    margin-bottom: 24px
+     
+.tasks-list
+    display: flex
+    flex-direction: column
+    gap: 12px
+
+    .task-item
+        display: flex
+        align-items: center
+        gap: 12px
+        padding: 12px 0
+        transition: var(--transition)
+
+        .task-icon
+            width: 8px
+            height: 8px
+            background: #fbbf24
+            border-radius: 50%
+            flex-shrink: 0
+
+        .task-text
+            color: var(--text-primary)
+            font-size: 14px
+
+        .timezone-list
+            display: flex
+            flex-direction: column
+            gap: 8px
+
+        .timezone-item
+            color: var(--secondary-blue)
+            font-size: 14px
+            padding: 4px 0
+            transition: var(--transition)
+            cursor: pointer
+
+    &:hover
+        color: var(--accent-blue)
+        text-decoration: underline
+
+        .time-display
+            text-align: center
+            padding: 16px 0
+
+        .current-time
+            font-size: 24px
+            font-weight: 300
+            color: var(--text-primary)
+            margin-bottom: 4px
+
+    &zone
+        color: var(--text-secondary)
+        font-size: 14px
+
+

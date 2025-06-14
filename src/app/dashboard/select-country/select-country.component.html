@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card__header">
+        <h2 class="card__title">País Seleccionado</h2>
+    </div>
+    <div class="card__body">
+        @if (datos) {
+            <div class="country-info">            
+                <h3 class="country-name">{{datos.location.country}}</h3>
+                <div class="country-details">
+                    <div class="country-details__item">Capital: {{datos.location.name}}</div>
+                    <div class="country-details__item">Region: {{datos.location.region}}</div>
+                    <div class="country-details__item">Latitud: {{datos.location.lat}} Longitud: {{datos.location.lon}}
+                    </div>
+                </div>
+            </div>
+        } @else {
+            <p>Seleccione un país</p>
+        }
+        </div>
+</div>
+
+ <!-- "location": {
+"name": "Bogota",
+"region": "Cundinamarca",
+"country": "Colombia",
+"lat": 4.6,
+"lon": -74.083,
+"tz_id": "America/Bogota",
+"localtime_epoch": 1749830071,
+"localtime": "2025-06-13 10:54" -->

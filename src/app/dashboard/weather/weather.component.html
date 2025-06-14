@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card__header">
+        <h2 class="card__title">Clima</h2>
+    </div>
+    <div class="card__body">
+        <div class="weather-display">
+            @if (datos) {
+                <img [src]="datos.current.condition.icon" alt="">
+                <div>
+                    <!-- temp_c -->
+                    <div class="weather-temp">{{datos.current.temp_c | number:'1.0-0'}}°C</div>
+                    <div class="weather-desc">{{datos.current.condition.text}}</div>
+                </div>
+            } @else {
+                <p>Seleccine un país</p>
+            }
+        </div>
+    </div>
+</div>
