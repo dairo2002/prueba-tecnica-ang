@@ -15,7 +15,7 @@ export class WwatherService {
   private baseUrl = environment.weatherBaseUrl;
   
   
-  getListCountries(){
+  getListCountries(): Observable<any[]> {
     const url = `${this.apiBaseUrl}/v1/listCountries/`;
     return this.http.get<any[]>(url)
   }
@@ -25,7 +25,7 @@ export class WwatherService {
     return this.http.get(url);
   }
 
-  // APIS que no se estan usando
+  // APIS que no se estan usando -- Pruebas
   getTimezone(location: string): Observable<any> {
     const url = `${this.baseUrl}/timezone.json?key=${this.apiKey}&q=${location}`;
     console.log(url);

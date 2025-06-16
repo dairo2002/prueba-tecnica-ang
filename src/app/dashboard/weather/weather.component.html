@@ -5,15 +5,12 @@
     <div class="card__body">
         <div class="weather-display">
             @if (datos) {
-                <img [src]="datos.current.condition.icon" alt="">
+                <img class="img-weather" [src]="datos.current.condition.icon" alt="{{datos.location.name}}">
                 <div>
-                    <!-- temp_c -->
                     <div class="weather-temp">{{datos.current.temp_c | number:'1.0-0'}}°C</div>
                     <div class="weather-desc">{{datos.current.condition.text}}</div>
                 </div>
-            } @else {
-                <p>Seleccine un país</p>
-            }
+            } 
         </div>
     </div>
 </div>

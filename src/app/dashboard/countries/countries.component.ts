@@ -23,6 +23,10 @@ export class CountriesComponent {
     this.weatherService.getListCountries().subscribe({
       next: (data) => {
         this.countries = data;
+        if(data.length > 0) {
+          // Muestra el primer pais
+          this.selectCountry(data[0]); 
+        }
       },
       error: (err) => {
         console.error('Error', err)

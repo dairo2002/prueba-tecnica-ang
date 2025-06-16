@@ -1,1 +1,16 @@
-<p>timezone works!</p>
+<div class="card">
+    <div class="card__header">
+        <h2 class="card__title">Zonas horarias disponibles</h2>
+    </div>
+    <div class="card__body">
+        @if (datos) {
+        <div class="timezone-list">
+            @for (zone of datos; track $index) {
+            <div class="timezone-item" (click)="selectZone(zone)">{{zone}}</div>
+            }
+        </div>
+        }@else {
+        <p>Selecciona un pais</p>
+        }
+    </div>
+</div>

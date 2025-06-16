@@ -2,12 +2,12 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-select-country',
+  selector: 'app-info-country',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './select-country.component.html',
-  styleUrl: './select-country.component.sass'
+  templateUrl: './info-country.component.html',
+  styleUrl: './info-country.component.sass'
 })
-export class SelectCountryComponent {
+export class InfoCountryComponent {
   @Input() datos: any;
 }

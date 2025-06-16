@@ -1,9 +1,11 @@
 export interface LoginRequest {
-    id: number;
     email: string;
     password: string;
 }
 
-export interface SignupRequest extends LoginRequest {
+export interface SignupRequest {
+    email: string;
+    password: string;
     name: string;
 }
+

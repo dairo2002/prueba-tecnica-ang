@@ -1,0 +1,30 @@
+.tasks-list
+    display: flex
+    flex-direction: column
+    gap: 12px
+
+    .task-item
+        display: flex
+        align-items: center
+        gap: 12px
+        padding: 12px 0
+        transition: var(--transition)
+
+        .task-icon
+            width: 8px
+            height: 8px
+            background: #fbbf24
+            border-radius: 50%
+            flex-shrink: 0
+
+        .task-text
+            color: var(--text-primary)
+            font-size: 14px
+   
+    &:hover
+        color: var(--accent-blue)
+        text-decoration: underline
+   
+    &zone
+        color: var(--text-secondary)
+        font-size: 14px

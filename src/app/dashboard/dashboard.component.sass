@@ -1,5 +1,28 @@
 @use '../../_variables' as *
 
+.alert-card
+    width: auto
+    height: 20px
+    background-color: #3ddc5a
+    color: #fff
+    padding: 8px
+    border-radius: $border-radius
+    margin: 12px   
+
+.alert-card-body
+    display: flex
+    align-items: center
+    gap: 10px
+
+.alert-card-body span 
+    padding: 0
+    margin: 0
+
+.alert-card-body img 
+    width: 20px 
+    height: 20px   
+    border-radius: 50%   
+
 .dashboard 
     display: flex
     min-height: 100vh
@@ -20,7 +43,6 @@
 .sidebar__header 
     padding: 24px 20px
     border-bottom: 1px solid $border-light
- 
 
 .sidebar__logo 
     font-size: 20px
@@ -30,14 +52,12 @@
     align-items: center
     gap: 12px
 
-
 .sidebar__logo i 
     font-size: 24px
- 
+
 
 .sidebar__nav 
     padding: 16px 0
- 
 
 .nav__item 
     display: block
@@ -49,7 +69,6 @@
     display: flex
     align-items: center
     gap: 12px
-
 
 .nav__item:hover 
     background-color: $light-blue
@@ -74,7 +93,6 @@
 .main-content__header 
     margin-bottom: 32px
  
-
 .page-title 
     font-size: 28px
     font-weight: 400
@@ -87,61 +105,9 @@
 
 .dashboard-grid 
     display: grid
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))        
     gap: 24px
     margin-bottom: 24px
      
-.tasks-list
-    display: flex
-    flex-direction: column
-    gap: 12px
-
-    .task-item
-        display: flex
-        align-items: center
-        gap: 12px
-        padding: 12px 0
-        transition: var(--transition)
-
-        .task-icon
-            width: 8px
-            height: 8px
-            background: #fbbf24
-            border-radius: 50%
-            flex-shrink: 0
-
-        .task-text
-            color: var(--text-primary)
-            font-size: 14px
-
-        .timezone-list
-            display: flex
-            flex-direction: column
-            gap: 8px
-
-        .timezone-item
-            color: var(--secondary-blue)
-            font-size: 14px
-            padding: 4px 0
-            transition: var(--transition)
-            cursor: pointer
-
-    &:hover
-        color: var(--accent-blue)
-        text-decoration: underline
-
-        .time-display
-            text-align: center
-            padding: 16px 0
-
-        .current-time
-            font-size: 24px
-            font-weight: 300
-            color: var(--text-primary)
-            margin-bottom: 4px
-
-    &zone
-        color: var(--text-secondary)
-        font-size: 14px
 
 

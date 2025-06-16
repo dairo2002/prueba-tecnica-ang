@@ -1,1 +1,15 @@
-<p>task works!</p>
+<div class="card">
+    <div class="card__header">
+        <h2 class="card__title">Otras tareas</h2>
+    </div>
+    <div class="card__body">
+        <div class="tasks-list">
+            @for (task of tasks; track $index) {
+            <div class="task-item">
+                <div class="task-icon"></div>
+                <div class="task-text">{{task.title}}</div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
