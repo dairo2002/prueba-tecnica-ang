@@ -1,65 +1,31 @@
 <div class="dashboard">
-    <!-- Mobile Menu Button -->
-    <!-- <button class="mobile-menu-btn" onclick="toggleSidebar()"> -->
-    <button class="mobile-menu-btn" type="button" title="button menu">
-        <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar" [class.closed]="!sidebarOpen">
         <div class="sidebar__header">
             <div class="sidebar__logo">
                 <i class="fas fa-tachometer-alt"></i>
                 Dashboard
             </div>
+            <button class="sidebar-toggle" type="button" title="button menu" (click)="toggleSidebar()">
+                <i class="fas fa-xl" [ngClass]="sidebarOpen ? 'fa-times' : 'fa-bars'"></i>
+            </button>
         </div>
         <nav class="sidebar__nav">
-            <a href="#" class="nav__item active">
-                <i class="fas fa-chart-line"></i>
-                Dashboards
-            </a>
-            <a href="#" class="nav__item">
+            <a routerLink="/dashboard/weather" class="nav__item" routerLinkActive="active">
                 <i class="fas fa-cloud-sun"></i>
                 Weather
             </a>
-            <a href="#" class="nav__item">
+            <a routerLink="/dashboard/users" class="nav__item" routerLinkActive="active">
                 <i class="fas fa-users"></i>
                 Usuarios
+            </a>
+            <a routerLink="/dashboard/users" class="nav__item" routerLinkActive="active">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Cerrar Sesión
             </a>
         </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <header class="main-content__header">
-            <h1 class="page-title">Dashboard Weather</h1>
-        </header>
-
-        <div class="dashboard-grid">
-            <!-- País Seleccionado -->
-            <app-info-country [datos]="datosWeather"></app-info-country>
-            <!-- Clima -->
-            <app-weather [datos]="datosWeather"></app-weather>
-            <!-- Países Disponibles -->
-            <app-countries (countrySelected)="manejarSeleccion($event)"></app-countries>
-        </div>
-
-        <!-- Segunda fila de cards -->
-        <div class="dashboard-grid">
-            <!-- Otras Tareas -->
-            <app-task></app-task>
-            <!-- Zonas Horarias -->
-            <app-timezone [datos]="zonesCountry" (zoneSelected)="manejarZonaSeleccionada($event)"></app-timezone>
-            <!-- Hora Actual -->
-            <app-hour-zone [zona]="selectedZone"></app-hour-zone>
-        </div>
+        <router-outlet></router-outlet>
     </main>
-
-    <div class="alert-card">
-        <div class="alert-card-body">
-            ✅
-            <img src="https://avatars.githubusercontent.com/u/113479606?v=4" alt="">
-            <span>Inicio sesión exitoso</span>
-        </div>
-    </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { TimezoneService } from '../../core/services/timezone.service';
+import { TimezoneService } from '../../../core/services/timezone.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

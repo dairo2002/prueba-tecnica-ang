@@ -1,0 +1,15 @@
+<header class="main-content__header">
+    <h1 class="page-title">Dashboard Weather</h1>
+</header>
+
+<div class="dashboard-grid">
+    <app-info-country [datos]="datosWeather"></app-info-country>
+    <app-weather [datos]="datosWeather"></app-weather>
+    <app-countries (countrySelected)="manejarSeleccion($event)"></app-countries>
+</div>
+
+<div class="dashboard-grid">
+    <app-task></app-task>
+    <app-timezone [datos]="zonesCountry" (zoneSelected)="manejarZonaSeleccionada($event)"></app-timezone>
+    <app-hour-zone [zona]="selectedZone"></app-hour-zone>
+</div>

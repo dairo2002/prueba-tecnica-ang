@@ -1,33 +1,11 @@
 @use '../../_variables' as *
 
-.alert-card
-    width: auto
-    height: 20px
-    background-color: #3ddc5a
-    color: #fff
-    padding: 8px
-    border-radius: $border-radius
-    margin: 12px   
-
-.alert-card-body
-    display: flex
-    align-items: center
-    gap: 10px
-
-.alert-card-body span 
-    padding: 0
-    margin: 0
-
-.alert-card-body img 
-    width: 20px 
-    height: 20px   
-    border-radius: 50%   
-
-.dashboard 
+.dashboard
     display: flex
     min-height: 100vh
- 
-.sidebar 
+
+
+.sidebar
     width: $sidebar-width
     background: $card-background
     box-shadow: $shadow-light
@@ -39,12 +17,12 @@
     z-index: 1000
     transition: $transition
 
-
-.sidebar__header 
+.sidebar__header
+    display: flex
     padding: 24px 20px
     border-bottom: 1px solid $border-light
 
-.sidebar__logo 
+.sidebar__logo
     font-size: 20px
     font-weight: 500
     color: $primary-blue
@@ -52,14 +30,13 @@
     align-items: center
     gap: 12px
 
-.sidebar__logo i 
+.sidebar__logo i
     font-size: 24px
 
-
-.sidebar__nav 
+.sidebar__nav
     padding: 16px 0
 
-.nav__item 
+.nav__item
     display: block
     padding: 12px 20px
     color: $text-secondary
@@ -70,44 +47,68 @@
     align-items: center
     gap: 12px
 
-.nav__item:hover 
+.nav__item:hover
     background-color: $light-blue
     color: $primary-blue
- 
-.nav__item.active 
+
+.nav__item.active
     background-color: $light-blue
     color: $primary-blue
     border-left-color: $primary-blue
     font-weight: 500
- 
-.nav__item i 
+
+.nav__item i
     width: 20px
     text-align: center
 
-.main-content 
+.main-content
     margin-left: $sidebar-width
     flex: 1
     padding: 24px
     transition: $transition
 
-.main-content__header 
-    margin-bottom: 32px
- 
-.page-title 
-    font-size: 28px
-    font-weight: 400
-    color: $text-primary
-    margin-bottom: 8px
-
-.page-subtitle 
-    color: $text-secondary
-    font-size: 16px    
-
-.dashboard-grid 
+.dashboard-grid
     display: grid
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))        
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
     gap: 24px
     margin-bottom: 24px
-     
 
+.sidebar.closed
+    transform: translateX(-100%)
+    transition: transform 0.3s ease-in-out
 
+.mobile-menu-btn
+    display: block
+    background: none
+    border: none
+    font-size: 24px
+    margin: 16px
+
+.sidebar.closed + .main-content
+    margin-left: $sidebar-collapsed-width
+
+.sidebar-toggle
+    position: absolute    
+    top: 20px
+    left: calc(100% - 35px) // botón quede "al borde" del sidebar 
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    background-color: $primary-blue
+    color: white
+    border: none
+    z-index: 1001
+    display: flex    
+    align-items: center
+    justify-content: center
+    cursor: pointer
+
+@media (min-width: 768px)
+    .sidebar.closed
+        transform: translateX(calc(-100% + #{$sidebar-collapsed-width}))
+        transition: transform 0.3s ease-in-out
+
+@media (max-width: 767px)
+    .sidebar.closed
+        transform: translateX(calc(-100% + #{$sidebar-collapsed-width}))
+        transition: transform 0.3s ease-in-out

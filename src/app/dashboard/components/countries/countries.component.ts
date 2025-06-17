@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { WwatherService } from '../../core/services/wwather.service';
+import { WwatherService } from '../../../core/services/wwather.service';
 
 @Component({
   selector: 'app-countries',

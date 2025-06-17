@@ -53,6 +53,4 @@ export class LoginComponent {
       this.errorMessage = 'Por favor, complete todos los campos correctamente';
     }
   }
-
-
 }

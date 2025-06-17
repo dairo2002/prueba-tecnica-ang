@@ -1,0 +1,27 @@
+@use '../../../../_variables' as *
+
+.main-content 
+    margin-left: $sidebar-width
+    flex: 1
+    padding: 24px
+    transition: $transition
+
+.main-content__header 
+    margin-bottom: 32px
+ 
+.page-title 
+    font-size: 28px
+    font-weight: 400
+    color: $text-primary
+    margin-bottom: 8px
+
+.page-subtitle 
+    color: $text-secondary
+    font-size: 16px    
+
+.dashboard-grid 
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))        
+    gap: 24px
+    margin-bottom: 24px
+     

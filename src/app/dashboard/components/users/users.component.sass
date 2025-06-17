@@ -1,0 +1,139 @@
+@use '../../../../_variables' as *
+
+.content-btn
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.btn-group
+    display: flex
+    align-items: center
+    margin-bottom: 15px
+
+.btn-primary
+    height: 35px
+    background-color: $primary-blue
+    color: white
+    border: 1px solid $primary-blue
+    font-size: 14px
+    padding: 0 10px
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-right: 5px
+    border-radius: $border-radius
+    &:hover
+        opacity: 0.9
+
+.dropdown
+    position: relative
+    display: inline-block
+
+.dropdown-toggle
+    &::after
+        display: none
+
+.dropdown-menu
+    display: none
+    position: absolute
+    background-color: #f9f9f9
+    min-width: 160px
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+    z-index: 1
+    &.show
+        display: block
+
+    a
+        color: black
+        padding: 12px 16px
+        text-decoration: none
+        display: block
+        &:hover
+            background-color: #f1f1f1
+
+.filter-section
+    display: flex
+    align-items: center
+    margin-bottom: 15px
+    
+    label
+        margin-right: 10px
+        font-weight: bold
+        color: $text-secondary
+
+.filter-input
+    width: 250px
+    height: 35px
+    font-size: 14px
+    padding: 0 10px
+    border: 1px solid $border-light
+    border-radius: $border-radius
+    color: $text-secondary
+
+    &:focus
+        border: 2px solid $primary-blue
+        transition: $transition
+        outline: none
+
+.table-container
+    overflow-x: auto
+    margin-bottom: 15px
+
+.datatable
+    width: 100%
+    border-collapse: collapse
+    background-color: white
+    border: 1px solid $border-light
+
+    thead
+        background-color: $background-gray
+
+        th
+            padding: 10px
+            text-align: left
+            border-bottom: 1px solid $border-light
+            cursor: pointer
+            font-weight: bold
+
+    tbody
+        tr
+            &:nth-child(even)
+                background-color: #f9f9f9
+
+        td
+            padding: 10px
+            border-bottom: 1px solid $border-light
+
+.datatable-footer
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-size: 14px
+
+.info
+    color: $text-secondary
+
+.pagination
+    display: flex
+    gap: 5px
+
+.btn-pagination
+    padding: 8px 12px
+    border: 1px solid $border-light
+    background-color: white
+    cursor: pointer
+    border-radius: $border-radius
+    &:hover
+        background-color: #f2f2f2
+
+    &.active
+        background-color: $primary-blue
+        color: white
+        border-color: $primary-blue
+
+    &:disabled
+        cursor: not-allowed
+        opacity: 0.6
+
+

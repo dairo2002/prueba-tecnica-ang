@@ -1,0 +1,6 @@
+<div class="alert-card" [class]="getAlertClass()" *ngIf="show">
+    <div class="alert-card-body">
+        <i [class]="getIconClass()"></i>
+        <span>{{ message }}</span>
+    </div>
+</div>
