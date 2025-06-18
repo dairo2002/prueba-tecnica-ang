@@ -2,14 +2,14 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { UsersService } from '../../../core/services/users.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AlertComponent } from '../../../shared/component/alert/alert.component';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-users',
-  imports: [CommonModule, FormsModule, AlertComponent],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.sass'
 })

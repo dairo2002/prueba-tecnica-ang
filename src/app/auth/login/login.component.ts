@@ -3,18 +3,21 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
 import { catchError } from 'rxjs/operators';
+import Swal from 'sweetalert2'
 import { of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink, ReactiveFormsModule],
+  standalone: true,
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.sass'
 })
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
-  
+
   constructor(
     private fb: FormBuilder,
     private authServices: AuthService,
@@ -26,29 +29,21 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    this.errorMessage = ''; // Limpiar mensaje de error anterior
-    
+    this.errorMessage = ''; // Limpiar mensaje de error anterior    
     if (this.loginForm.valid) {
-      this.authServices.Login(this.loginForm.value)
-        .pipe(
-          catchError(error => {
-            if (error.status === 401) {
-              this.errorMessage = error.error?.message;
-            } else {
-              this.errorMessage = 'Error al intentar iniciar sesión';
-            }
-            return of(null); // Retornar un observable vacío para evitar que el error se propague
-          })
-        )
-        .subscribe(response => {
-          if (response) {
-            if (response.success) {
-              this.router.navigate(['/dashboard']);
-            } else {
-              this.errorMessage = response.message || 'Error al iniciar sesión';
-            }
-          }
-        });
+      this.authServices.Login(this.loginForm.value).subscribe({
+        next: (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Inicio Sesión',
+            text: response.message,
+          });
+          this.router.navigate(['/dashboard/weather']);
+        },
+        error: (err) => {          
+          this.errorMessage = err.error.message
+        }
+      });
     } else {
       this.errorMessage = 'Por favor, complete todos los campos correctamente';
     }

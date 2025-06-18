@@ -1,87 +1,83 @@
-<app-alert 
-    [message]="alertMessage" 
-    [type]="alertType" 
-    [show]="showAlert">
-</app-alert>
-
 <header class="main-content__header">
-    <h1 class="page-title">Usuarios</h1>
+  <h1 class="page-title">Usuarios</h1>
 </header>
 
 <div class="container">
-    <div class="content-btn">
-        <div class="btn-group">
-            <button class="btn-primary" (click)="exportPDF()">
-                <i class="fa-regular fa-file-pdf"></i> PDF
-            </button>
-            <button class="btn-primary" (click)="exportExcel()">
-                <i class="fa-regular fa-file-excel"></i> Excel
-            </button>
-            <button class="btn-primary" (click)="print()">
-                <i class="fa-solid fa-print"></i> Imprimir
-            </button>
-        </div>
-        <div class="filter-section">
-            <label for="filtro">Filtrar:</label>
-            <input 
-                type="text" 
-                id="filtro" 
-                [(ngModel)]="filtro" 
-                (input)="aplicarFiltro()"
-                placeholder="Buscar por nombre o email..." 
-                class="filter-input"
-            >
-        </div>
+  <div class="content-btn">
+    <div class="btn-group">
+      <button class="btn-primary" (click)="exportPDF()">
+        <i class="fa-regular fa-file-pdf"></i> PDF
+      </button>
+      <button class="btn-primary" (click)="exportExcel()">
+        <i class="fa-regular fa-file-excel"></i> Excel
+      </button>
+      <button class="btn-primary" (click)="print()">
+        <i class="fa-solid fa-print"></i> Imprimir
+      </button>
+    </div>
+    <div class="filter-section">
+      <label for="filtro">Filtrar:</label>
+      <input
+        type="text"
+        id="filtro"
+        [(ngModel)]="filtro"
+        (input)="aplicarFiltro()"
+        placeholder="Buscar por nombre o email..."
+        class="filter-input"
+        >
+      </div>
     </div>
 
     <div class="table-container">
-        <table class="datatable">
-            <thead>
-                <tr>
-                    <th class="sortable">Nombre</th>
-                    <th class="sortable">Email</th>
-                    <th class="sortable">Fecha Registro</th>
-                    <th class="sortable">Último login</th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (user of usuariosPaginados; track $index) {
-                <tr>
-                    <td>{{ user.name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.date_joined | date:'yyyy-MM-dd h:mm:ss a' }}</td>
-                    <td>{{ user.last_login | date:'yyyy-MM-dd h:mm:ss a' }}</td>
-                </tr>
-                }
-            </tbody>
-        </table>
+      <table class="datatable">
+        <thead>
+          <tr>
+            <th class="sortable">Nombre</th>
+            <th class="sortable">Email</th>
+            <th class="sortable">Fecha Registro</th>
+            <th class="sortable">Último login</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of usuariosPaginados; track $index) {
+            <tr>
+              <td>{{ user.name }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.date_joined | date:'yyyy-MM-dd h:mm:ss a' }}</td>
+              <td>{{ user.last_login | date:'yyyy-MM-dd h:mm:ss a' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
     </div>
 
     <div class="datatable-footer">
-        <div class="info">
-            Mostrando registros del {{ inicioRegistro }} al {{ finRegistro }} de un total de {{ totalRegistros }}
-        </div>
+      <div class="info">
+        Mostrando registros del {{ inicioRegistro }} al {{ finRegistro }} de un total de {{ totalRegistros }}
+      </div>
 
-        <div class="pagination">
-            <button class="btn-pagination" (click)="irAPagina(1)" [disabled]="paginaActual === 1">
-                Primero
-            </button>
-            <button class="btn-pagination" (click)="irAPagina(paginaActual - 1)" [disabled]="paginaActual === 1">
-                Anterior
-            </button>
+      <div class="pagination">
+        <button class="btn-pagination" (click)="irAPagina(1)" [disabled]="paginaActual === 1">
+          Primero
+        </button>
+        <button class="btn-pagination" (click)="irAPagina(paginaActual - 1)" [disabled]="paginaActual === 1">
+          Anterior
+        </button>
 
-            <button *ngFor="let pagina of paginasVisibles" class="btn-pagination"
-                [class.active]="pagina === paginaActual" (click)="irAPagina(pagina)">
-                {{ pagina }}
-            </button>
+        @for (pagina of paginasVisibles; track pagina) {
+          <button class="btn-pagination"
+            [class.active]="pagina === paginaActual" (click)="irAPagina(pagina)">
+            {{ pagina }}
+          </button>
+        }
 
-            <button class="btn-pagination" (click)="irAPagina(paginaActual + 1)"
-                [disabled]="paginaActual === totalPaginas">
-                Siguiente
-            </button>
-            <button class="btn-pagination" (click)="irAPagina(totalPaginas)" [disabled]="paginaActual === totalPaginas">
-                Último
-            </button>
-        </div>
+        <button class="btn-pagination" (click)="irAPagina(paginaActual + 1)"
+          [disabled]="paginaActual === totalPaginas">
+          Siguiente
+        </button>
+        <button class="btn-pagination" (click)="irAPagina(totalPaginas)" [disabled]="paginaActual === totalPaginas">
+          Último
+        </button>
+      </div>
     </div>
-</div>
+  </div>

@@ -1,25 +1,67 @@
 <div class="container">
     <div class="form-container">
         <h1 class="form-title">Crear Cuenta</h1>
-        <form action="">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="txtName">Nombre</label>
-                <input type="text" name="txtName" id="" placeholder="Ingrese el nombre completo">
+                <label for="name">Nombre</label>
+                <input type="text" formControlName="name" id="" placeholder="Ingrese el nombre completo">
+                @if (signupForm.get('name')?.invalid && signupForm.get('name')?.touched) {
+                    @if (signupForm.get('name')?.errors?.['required']) {
+                        <span class="message-validator">El nombre es requerido</span>                        
+                    }
+                    @if (signupForm.get('name')?.errors?.['minlength']) {
+                        <span class="message-validator">El nombre debe tener al menos 3 caracteres</span>                        
+                    }
+                }
             </div>
             <div class="form-group double">
                 <div class="form-group">
-                    <label for="txtPassword">Password</label>
-                    <input type="text" name="txtPassword" id="" placeholder="Ingrese la contraseña">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" placeholder="Ingrese la contraseña">
+                    @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched) {
+                        @if (signupForm.get('password')?.errors?.['required']) {
+                            <span class="message-validator">La contraseña es requerida</span>                        
+                        }
+                        @if (signupForm.get('password')?.errors?.['minlength']) {
+                            <span class="message-validator">La contraseña debe tener al menos 3 caracteres</span>                        
+                        }
+                    }
                 </div>
                 <div class="form-group">
-                    <label for="txtConfPwd">Confirm Password</label>
-                    <input type="text" name="txtConfPwd" id="" placeholder="Confirme la contraseña">
+                    <label for="confPwd">Confirm Password</label>
+                    <input type="password" formControlName="confPwd" placeholder="Confirme la contraseña">
+                    @if (signupForm.get('confPwd')?.invalid && signupForm.get('confPwd')?.touched) {
+                        @if (signupForm.get('confPwd')?.errors?.['required']) {
+                            <span class="message-validator">La contraseña es requerida</span>                        
+                        }
+                        @if (signupForm.get('confPwd')?.errors?.['minlength']) {
+                            <span class="message-validator">La confirmación debe tener al menos 3 caracteres</span>                        
+                        }
+                    }
                 </div>
             </div>
+            @if (signupForm.hasError('passwordMismatch') && signupForm.get('password')?.value && signupForm.get('confPwd')?.value) {
+                <div class="message-validator">
+                    Las contraseñas no coinciden
+                </div>
+            }
             <div class="form-group">
-                <label for="txtEmail">Email</label>
-                <input type="email" name="txtEmail" id="" placeholder="Ingrese email">
+                <label for="email">Email</label>
+                <input type="email" formControlName="email" placeholder="Ingrese email">
+                @if (signupForm.get('email')?.invalid && signupForm.get('email')?.touched) {
+                    @if (signupForm.get('email')?.errors?.['required']) {
+                        <span class="message-validator">El email es requerido</span>                        
+                    }
+                    @if (signupForm.get('email')?.errors?.['email']) {
+                        <span class="message-validator">Introduce un email válido</span>                        
+                    }
+                }
             </div>
+            @if (errorMessage) {
+                <div class="message-validator">
+                    {{ errorMessage }}
+                </div>
+            }
             <button type="submit" class="btn-send">Crear Cuenta</button>
         </form>
         <div class="link-login">

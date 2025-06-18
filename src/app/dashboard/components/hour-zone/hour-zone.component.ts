@@ -1,16 +1,16 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { TimezoneService } from '../../../core/services/timezone.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-hour-zone',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './hour-zone.component.html',
   styleUrl: './hour-zone.component.sass'
 })
 export class HourZoneComponent implements OnChanges {
   @Input() zona: any = '';
+  @Input() ciudad: string = '';
   time = '';
   date = '';
 

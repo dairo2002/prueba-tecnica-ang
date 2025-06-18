@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-info-country',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './info-country.component.html',
   styleUrl: './info-country.component.sass'
 })

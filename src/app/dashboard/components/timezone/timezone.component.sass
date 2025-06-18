@@ -5,9 +5,19 @@
     flex-direction: column
     gap: 8px
 
+.zone
+    margin-left: 10px
+
 .timezone-item
-    color: var(--secondary-blue)
+    color: $secondary-blue
     font-size: 14px
     padding: 4px 0
-    transition: var(--transition)
+    transition: $transition
     cursor: pointer
+
+    &:hover
+        color: $accent-blue
+        text-decoration: underline
+        transition: $transition
+
+   

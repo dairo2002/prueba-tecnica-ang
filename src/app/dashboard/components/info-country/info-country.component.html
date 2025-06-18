@@ -4,19 +4,13 @@
     </div>
     <div class="card__body">
         @if (datos) {
-            <div class="country-info">            
-                <h3 class="country-name">{{datos.location.country}}</h3>
-                <div class="country-details">
-                    <div class="country-details__item">Capital: {{datos.location.name}}</div>
-                    <div class="country-details__item">Region: {{datos.location.region}}</div>
-                    <div class="country-details__item">Latitud: {{datos.location.lat}} Longitud: {{datos.location.lon}}
-                    </div>
-                    <div class="" style="color: rgb(0, 0, 0);">LocalTime: {{datos.location.localtime}}
-                    </div>
-                </div>
+        <div class="country-info">
+            <h3 class="country-name">{{datos.location.country}}</h3>
+            <div class="country-details">
+                <div class="country-details__item">Capital: {{datos.location.name}}</div>
+                <div class="country-details__item">Region: {{datos.location.region}}</div>
+                <div class="country-details__item">Latitud: {{datos.location.lat}} Longitud: {{datos.location.lon}}</div>
             </div>
-        } @else {
-            <p>Seleccione un país</p>
-        }
         </div>
-</div>
+        }
+    </div>

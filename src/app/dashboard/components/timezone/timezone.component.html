@@ -5,8 +5,11 @@
     <div class="card__body">
         @if (datos) {
         <div class="timezone-list">
-            @for (zone of datos; track $index) {
-            <div class="timezone-item" (click)="selectZone(zone)">{{zone}}</div>
+            @for (timezone of datos; track $index) {
+            <div class="timezone-item" (click)="selectZone(timezone)">
+                <span class="city">{{timezone.city}}</span>
+                <span class="zone">({{timezone.zone}})</span>
+            </div>
             }
         </div>
         }

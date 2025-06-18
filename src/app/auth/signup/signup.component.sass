@@ -1,17 +1,7 @@
-$white: #ffffff
-$bg-primary: #4285f4
-$bg-secondary: #333
-$text-primary: #333
-$text-secondary: #666
-$text-placeholder: #aaa
-$border-color: #e0e0e0
-$border-focus: #93bcff
-$shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1)
-$shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15)
-
+@use '../../../_variables' as *
 
 .container    
-    background: $bg-primary
+    background: $primary-blue
     min-height: 100vh
     display: flex
     align-items: center
@@ -26,16 +16,19 @@ $shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15)
     background: #ffff
     border-radius: 12px
     box-shadow: $shadow-medium
-    padding: 40px
+    padding: 35px
     width: 100%
     max-width: 450px
     position: relative
     overflow: hidden
 
+.message-validator 
+    color: #ff4f4f
+    font-size: 13px
+
 .form-group
     display: flex
     flex-direction: column
-    gap: 10px
     font-size: 16px 
     
     &.double
@@ -46,30 +39,30 @@ $shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15)
             flex: 1       
 
     label
-        color: $text-secondary
-        margin-top: 5px 
+        color: $text-primary
+        margin: 10px 4px 6px 
         
     input         
         padding: 12px
         color: $text-secondary
-        border: 3px solid $bg-secondary
-        border-color: $border-color 
+        border: 3px solid $secondary-blue
+        border-color: $border-light 
         border-radius: 8px 
         transition: all 0.3s ease      
     
     input::placeholder
-        color: $text-placeholder
+        color: $text-secondary
 
 
     input:focus
         outline: none              
-        border-color: $border-focus
+        border-color: $border-light
         box-shadow: $shadow-light 
             
 .btn-send 
     width: 100%
-    background: $bg-primary
-    color: $white
+    background: $primary-blue
+    color: white
     border: none
     padding: 15px
     margin-top: 20px 
@@ -84,7 +77,7 @@ $shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15)
 
     a
         text-decoration: none
-        color: $bg-primary
+        color: $primary-blue
 
 
 
